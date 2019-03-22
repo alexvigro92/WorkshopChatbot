@@ -25,7 +25,7 @@ export const makeQuestionToWatson = (question,context) => {
     axios.post(`${URL_WATSON_ASSISTANT}`,{
       	"request": {
           question,
-          ...context
+          context: {...context['context'] || ''}
         }
     })
     .then(function (response) {
